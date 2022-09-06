@@ -4,7 +4,10 @@ import { NgModule } from '@angular/core';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { MapComponent } from './map/map.component';
+import { SocketService } from './socket.service';
+import { SocketIoConfig, SocketIoModule } from 'ngx-socket-io';
 
+//const config: SocketIoConfig = { url: 'http://localhost:4200/api', options: {} };
 @NgModule({
   declarations: [
     AppComponent,
@@ -12,9 +15,11 @@ import { MapComponent } from './map/map.component';
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    //SocketIoModule.forRoot(config)
   ],
-  providers: [],
+  providers: [SocketService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
+
